@@ -35,19 +35,19 @@ if (hashInlocalStorage) {
 //遍历数组，生成kbd、div标签，插入标签
 var index = 0
 while (index < keys.length) { //取值为0 1 2
-    div1 = document.createElement('div')
-    main.appendChild(div1)
+    div = document.createElement('div')
+    main.appendChild(div)
     row = keys[index]  //取值为 第一个数组 第二个数组 第三个数组
     index2 = 0
     while (index2 < row.length) { //取值为 0-9 0-8 0-7
-        kbd1 = document.createElement('kbd')
-        kbd1.textContent = row[index2]
-        button1 = document.createElement('button')
-        button1.textContent = '编辑'
-        kbd1.appendChild(button1)
-        button1.id = row[index2]  //给button一个id
+        kbd = document.createElement('kbd')
+        kbd.textContent = row[index2]
+        button = document.createElement('button')
+        button.textContent = '编辑'
+        kbd.appendChild(button)
+        button.id = row[index2]  //给button一个id
         //other[target]就是用户点击的元素
-        button1.onclick = function (other) {
+        button.onclick = function (other) {
             key = other.target.id  //用户点击的元素的id
             x = prompt('请输入一个网址')
             hash[key] = x  //hash变更
@@ -55,7 +55,7 @@ while (index < keys.length) { //取值为0 1 2
             localStorage.setItem('zzz', JSON.stringify(hash))
             console.log(hash)
         }
-        div1.appendChild(kbd1)
+        div.appendChild(kbd)
         index2 = index2 + 1
     }
     index = index + 1
@@ -63,6 +63,6 @@ while (index < keys.length) { //取值为0 1 2
 document.onkeypress = function (other) {
     key = other.key  //取用户输入的键
     website = hash[key] //取hash里对应的网址
-    location.href = 'http://' + website
-    //window.open('http://' + website, '_blank')  在新窗口打开
+    //location.href = 'http://' + website
+    window.open('http://' + website, '_blank')  //在新窗口打开
 }
