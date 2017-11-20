@@ -53,13 +53,15 @@ function createButton(id) {
         var img2 = button2.previousSibling
         var key = button2.id  //用户点击的元素的id
         var x = prompt('请输入网址')
-        hash[key] = x  //hash变更
-        img2.src = 'http://' + x + '/favicon.ico'
-        img2.onerror = function (xxx) {
-            xxx.target.src = '//ooo.0o0.ooo/2017/11/19/5a1168df0504a.png'
+        if(x!=='' && x!==null){
+            hash[key] = x  //hash变更
+            img2.src = 'http://' + x + '/favicon.ico'
+            img2.onerror = function (xxx) {
+                xxx.target.src = '//ooo.0o0.ooo/2017/11/19/5a1168df0504a.png'
+            }
+            //把变更的hash存入localStorage
+            localStorage.setItem('zzz', JSON.stringify(hash))
         }
-        //把变更的hash存入localStorage
-        localStorage.setItem('zzz', JSON.stringify(hash))
     }
     return button
 }
