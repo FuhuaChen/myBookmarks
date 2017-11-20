@@ -1,4 +1,4 @@
-*{margin: 0;padding: 0}
+*{margin: 0;padding: 0;}
 a{text-decoration: none;}
 kbd{
     border: 1px solid red;
@@ -17,17 +17,29 @@ kbd > button{
 kbd:hover > button{
     display: inline-block;
 }
+body{
+    background: gray url(./wall.jpg) no-repeat center center;
+    background-size: cover;
+}
 main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    height: 100vh;
 }
 #main{
     display: inline-block;
 }
+.wrapper{
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
 #main div:nth-child(2){
-    margin-left: 2em;
+    margin-left: -22px;
 }
 #main div:nth-child(3){
-    margin-left: 4em;
+    margin-left: -80px;
 }
 .key{
     border: solid 1px #3A3A3A;
@@ -39,5 +51,24 @@ main{
     color: #D5D5D5;
     font-family: sans-serif;
     font-size: 16px;
-    box-shadow: 0 0 0 1px #0D0D0D, 0 0 0 1px #080808, 0 3px 0 0 black
+    box-shadow: 0 0 0 1px #0D0D0D, 0 0 0 2px #080808, 0 3px 0 0 black;
+    position: relative;
+}
+.key img{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    bottom: 4px;
+    left: 2px;
+}
+.key .text{
+    position: absolute;
+    top: 0;
+    left: 2px;
+}
+.row{
+    margin: 20px;
+}
+.row .key{
+    margin: 0 10px;
 }
